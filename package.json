@@ -7,8 +7,9 @@
     "npm": ">= 3.10.8"
   },
   "scripts": {
+    "ng": "ng",
     "build": "ng build -prod -aot && gulp",
-    "start": "ng serve",
+    "start": "node server.js",
     "start:https": "ng serve --ssl true --ssl-key ./dev_cert.key --ssl-cert ./dev_cert.crt",
     "test": "ng test --watch false",
     "e2e": "ng e2e"
