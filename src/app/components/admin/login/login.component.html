@@ -1,0 +1,55 @@
+
+<!-- <div class="container-fluid ">
+    
+  <div class="row login-form">
+      <div class="col-sm-6 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <div class="card-body">
+              <h5 class="card-title text-center">Admin Sign In</h5>
+              <form class="form-signin">
+                <div class="form-label-group">
+                  <input type="text"  class="form-control" #userEmail  placeholder="Email address" required autofocus>
+                  
+                </div>
+  
+                <div class="form-label-group">
+                  <input type="password"  #userPassword class="form-control" placeholder="Password" required>
+                  
+                </div>
+  
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" (click)="authService.login(userEmail.value, userPassword.value)">Sign in</button>
+                <hr class="my-4">
+                
+                
+              </form>
+            </div>
+          </div>
+        </div>
+  </div>
+</div> -->
+
+<div class="container-fluid image">
+  <div class="row mx-auto">
+    <div class="col login-center">
+      <form class="form-signin">
+          <img class="mb-4" src="../../../../assets/admin.png" alt="" width="82" height="82">
+          <h1 class="h3 mb-3 font-weight-normal">Admin sign in</h1>
+          <label for="inputEmail" class="sr-only">Email address</label>
+          <input type="email"  #userEmail class="form-control" placeholder="Email address" required autofocus>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password"  #userPassword class="form-control" placeholder="Password" required>
+          <div class="checkbox mb-3">
+            <!-- <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label> -->
+          </div>
+          <button class="btn btn-lg signinBtn btn-block text-uppercase" (click)="authService.login(userEmail.value, userPassword.value)">Sign in</button>
+          <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+    </form>
+    </div>
+  </div>
+</div>
+
+
+
+ 

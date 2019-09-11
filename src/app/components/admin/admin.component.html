@@ -1,0 +1,109 @@
+<div class="container-fluid image">
+  <div class="row">
+    
+    <div class="col-6 scrollable">
+        <div class="adminTopic">
+            <h3>Add Products</h3>
+        </div>
+      <form class="add-form" #productForm="ngForm" (ngSubmit)="onSubmit(productForm)" autocomplete="off" >
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="productsService.selectedProduct._id">
+          <div class="form-group">
+            <label>Product Name</label>
+            <input class="form-control" type="text" name="name" #name="ngModel" [(ngModel)]="productsService.selectedProduct.name" placeholder="Enter the Name" required>
+            
+          </div>
+          <div class="form-group">
+            <label >Product Description</label>
+            <input class="form-control" type="text" name="description" #name="ngModel" [(ngModel)]="productsService.selectedProduct.description" placeholder="Enter the Description" required>
+          </div>
+
+          <div class="form-group">
+              <label >Product Price</label>
+              <input class="form-control" type="text" name="price" #name="ngModel" [(ngModel)]="productsService.selectedProduct.price" placeholder="Enter the Price" required>
+          </div>
+
+          <div class="form-group">
+              <!-- <label >Product Image</label> -->
+              <!-- <input class="form-control-file" type="file" (change)="onFileSelected($event)" > -->
+              <ngx-uploadcare-widget
+                images-only="true"
+                public-key="152c29d8ecac0f31f044"
+                (on-upload-complete)="onUploadHandler($event)">
+              </ngx-uploadcare-widget>
+              <input class="form-control" hidden type="text" name="image" #name="ngModel" [(ngModel)]="image" placeholder="Enter the image">
+          </div>
+
+          <div class="btn-group">
+             
+            <button class="btn btn-success" type="submit" [disabled]="!productForm.valid">Submit</button>
+            <button class="btn btn-warning" type="button" (click)="resetForm(productForm)" >Reset</button>
+          </div>
+         
+
+      </form>
+
+      <div class="views">
+        <h3>View Records</h3>
+        <button class=" backbtn btn btn-primary"
+          routerLink="/chef-view">Chef View</button>
+      </div>
+          
+       
+    </div>
+
+    <div class="col-6 scrollable2">
+      <div class="row">
+        <div class="col-6">
+          <div class="editTopic">
+            <h3 >Edit Products</h3>
+          </div>
+        </div>
+        <div class="col-6">
+          <h3></h3>
+          <div *ngIf="authService.isLoggedIn" class="logoutBtn">
+                <button  class="btn btn-default" (click)="authService.logout()"><img src="../../../assets/logout.png" alt=""></button>
+            </div>
+        </div>
+            
+            
+        
+      </div>
+        
+        
+        <table class="table table-borderless " id="pro">
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pro of productsService.products | async">
+                  <td>{{pro.name}}</td>
+                  <td>{{pro.description}}</td>
+                 
+                  <td>{{pro.price}}</td>
+                  <td>
+                    <button class="btn btn-default" (click)="onEdit(pro)">
+                      <img src="../../../assets/edit.png" width="32" alt="">
+                    </button>
+                    <button class="btn btn-default" (click)="onDelete(pro._id,productForm)">
+                        <img src="../../../assets/delete.png" width="32" alt="">
+                    </button>
+                  </td>
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#pro').DataTable();
+} );
+</script>

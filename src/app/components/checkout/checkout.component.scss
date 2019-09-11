@@ -1,0 +1,111 @@
+.backbtn{
+  position: fixed;
+  right: 30px; 
+  bottom: 5px;
+  margin-left: 10px;
+  // font-size: 30px;
+  display:block;
+  height: 100px;
+  width: 100px;
+  // border-radius: 50%;
+  // border: 2px solid;
+  
+  
+}
+.itemTot, .orderTopic{
+  margin-top: 90px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 700;
+}
+.orderTopic{
+  margin-left: 15px;
+}
+table th{
+  text-align: center;
+  font-size: 25px;
+}
+table td{
+  text-align: center;
+  vertical-align: 50%;
+  font-size: 20px;
+  font-weight: 600
+}
+.leftside{
+  border-left: 4px solid #009cde;
+  height: 100vh;
+  left: 66%;
+  margin-left: -3px;
+  top: 0;
+  position: fixed;
+  right: 0;
+}
+input{
+  font-size: 20px;
+}
+
+.checkImg{
+  height: 200px;
+  width: 100%;
+}
+
+.green{
+  background-color: #009cde;;
+}
+.red{
+  background-color: red
+}
+.btn-group{
+  margin-left: 15px !important;
+}
+.helptel{
+  color: red !important;
+  font-size: 14px !important;
+}
+.btn:focus {
+  outline: none !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.form-control{
+  width: 225px;
+}
+
+.image{
+  background-image: url(../../../assets/pixel1.jpg);
+  background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}
+.scrollable{
+  position: absolute;
+  height: calc(100% - 30px);
+  width: 100%;
+  overflow-y: auto;
+}
+label{
+  font-size: 25px;
+}
+
+.videobk{
+  margin-top: 100px;
+  // margin-left: 40px;
+}
+.video{
+  width: 100%;
+  border-radius: 10px; 
+  // height: 250px;
+}
+.paypal{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 700;
+}
+.payBtn{
+  margin-top: 20px;
+  padding: 0;
+}

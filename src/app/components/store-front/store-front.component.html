@@ -1,0 +1,56 @@
+<div class="container-fluid image">
+  <div class="row ">
+
+  <div class="col-8 scrollable">
+    <h3 class="frontTopic">Pick your favourite foods</h3>
+        <div class="row">
+              <ng-container *ngFor="let product of products | async" >
+                
+                    <div class="col">
+
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{product.image}}" class="card-img-top img-fluid img-thumbnail frontImg" alt="">
+                            <div class="card-body">
+                              <h5 class="card-title">{{product.price | currency:'USD':true}}</h5>
+
+                              <ul class="list-inline">
+                                <li class="list-inline-item itemName">{{product.name}}</li>
+                                <li class="list-inline-item">{{product.description}}</li>
+                              </ul>
+                              
+                              <div class="btn-group" role="group" >
+                                  <button type="button" class="btn btn-success selItem" (click)="addProductToCart(product, 1)">Select</button>
+                                  <button type="button" class="btn btn-danger " *ngIf="productInCart(product) | async"
+                                  (click)="removeProductFromCart(product, 1)">Remove</button>
+                                  
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                   
+                
+                  
+              </ng-container>
+        </div>      
+    
+    
+  </div>
+  <div class="col-4 rightSide">
+    
+      <app-shopping-cart></app-shopping-cart>
+
+      <div class="videobk">
+        <video class=" video"  autoplay="autoplay" loop="loop">
+          
+          <source src="../../../assets/Slow Motion - Food.mp4" type="video/mp4">
+          </video> 
+      </div>
+
+  </div>
+
+  
+</div>
+</div>
+

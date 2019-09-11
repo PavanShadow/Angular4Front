@@ -1,0 +1,170 @@
+<!-- <div class="container">
+  <div class="row">
+  <div class="col">
+    <h2>
+      <i class="material-icons">shopping_basket</i>
+      <span>Checkout</span>
+    </h2>
+  </div>
+  <div class="col text-left">
+    <h4>
+      Order Total
+      <span class="text-right" >{{(cart | async).grossTotal | currency:'USD':true}}</span>
+    
+    </h4>
+  </div>
+  <div class="col text-right" >
+      
+     
+
+  </div>
+  <hr/>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="row checkout_row"
+        *ngFor="let item of cartItems">
+      <div class="col">
+          <img src="./assets/{{item.product._id}}.jpg"
+                class="product_image"/>
+      </div>
+      <div class=" col">
+        
+          <span class="text--bold js-product-name">{{item.product.name}}</span>
+          <p class="js-product-desc">{{item.product.description}}</p>
+          
+      </div>
+      <div class=" col text-right">
+          <p class="text--red js-product-costs">{{item.quantity}} x {{item.product.price | currency:'USD':true}}</p>
+      </div>
+      <div class="col text-right">
+          <p class="text--bold text--red js-product-total">{{item.totalCost | currency:'USD':true}}</p>
+         
+      </div>
+      
+
+    </div>
+   
+  </div>
+
+
+  <div class="col" >
+     <h4>Pay via paypal</h4>
+    
+        Table No : <input type="text" #model="ngModel" [(ngModel)]="tableNo" maxlength="1" >
+        Telephone No : <input type="text" #model="ngModel" [(ngModel)]="telNo" maxlength="14" >
+     
+      
+  </div>
+
+
+  <div class="row">
+    <div class=" col">
+      <a class="warning button"
+        routerLink="/">Back to List</a>
+    </div>
+  </div>
+</div>
+
+
+</div> -->
+
+
+
+<div class="container-fluid image">
+  <div class="row">
+    <div class="col-8 scrollable">
+
+      <div class="orderTopic"> 
+          <ul class="list-inline">
+             <li>Orderd Items</li>
+          </ul>
+      </div>
+      
+
+          <table class="table table-borderless table-image">
+              <thead>
+                <tr>
+                  <th scope="col">Image</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cartItems">
+                  <td class="w-25" ><img src="{{item.product.image}}"
+                    class="img-fluid img-thumbnail checkImg"/></td>
+                  <td>{{item.product.name}}</td>
+                  <td>{{item.quantity}}</td>
+                  <td>{{item.totalCost | currency:'USD':true}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+      
+
+    </div>
+    
+
+    <div class="col-4 leftside ">
+      <div class="itemTot ">
+        <ul class="list-inline">
+            <li class="list-inline-item">Sub Total</li>
+            <li class="list-inline-item">{{(cart | async).grossTotal | currency:'USD':true}}</li>
+        </ul>
+        
+        <!-- <h3>Total</h3><span>{{(cart | async).grossTotal | currency:'USD':true}}</span> -->
+      </div>
+      
+
+       
+       
+        
+        <!-- Enter a value <input type="text" [(ngModel)]="name"> -->
+        <!-- <label id="lblName"> {{name}} </label> -->
+
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Table No</label>
+            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-default tableNo" (click)="changeTbl1(1)" [ngClass]="{'green' : toogle1, 'red': !toogle1}"><img src="../../../assets/one.png" width="42" alt=""></button>
+              <button type="button" class="btn btn-default" (click)="changeTbl2(2)" [ngClass]="{'green' : toogle2, 'red': !toogle2}"><img src="../../../assets/two.png" width="42" alt=""></button>
+              <button type="button" class="btn btn-default" (click)="changeTbl3(3)" [ngClass]="{'green' : toogle3, 'red': !toogle3}"><img src="../../../assets/three.png" width="42" alt=""></button>
+            </div>
+            <div class="col-sm-10">
+              <input type="hidden" #model="ngModel" [(ngModel)]="tableNo" maxlength="1" class="form-control">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label  class="col-sm-4 col-form-label">Mobile</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" #model="ngModel" [(ngModel)]="telNo" maxlength="9">
+              <small class="form-text text-muted helptel">Don't use 0 infront of the phone number</small>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-4">
+                <h4 class="paypal">Payment</h4>
+            </div>
+            <div class="col-8 payBtn" id="paypal-button">
+                <!-- <div id="paypal-button" ></div> -->
+            </div>
+          </div>
+          
+
+          <video class=" video"  autoplay="autoplay" loop="loop">
+          
+              <source src="../../../assets/Slow Motion - Food.mp4" type="video/mp4">
+              </video>
+
+          <div>
+              <button type="button" class=" backbtn btn btn-default"
+              routerLink="/">
+              <img src="../../../assets/back.png"  width="82" alt="">
+                </button>
+          </div>
+      </div>
+
+  </div>
+</div>

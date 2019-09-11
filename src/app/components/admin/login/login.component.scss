@@ -1,0 +1,135 @@
+// .image{
+//   background: url('../../../../assets/login.jpg');
+//   height: 100%;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   position: fixed;
+//   left: 0;
+//   right: 0;
+
+  
+// }
+
+// .login-form{
+//   margin-top: 120px;
+// }
+// .card-signin {
+  
+//   border: 0;
+//   border-radius: 1rem;
+//   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+//   background-color: azure
+// }
+
+// .card-signin .card-title {
+//   margin-bottom: 2rem;
+//   font-weight: 300;
+//   font-size: 1.5rem;
+// }
+
+// .card-signin .card-body {
+//   padding: 2rem;
+// }
+
+// .form-signin {
+//   width: 100%;
+// }
+
+// .form-signin .btn {
+//   font-size: 80%;
+//   border-radius: 5rem;
+//   letter-spacing: .1rem;
+//   font-weight: bold;
+//   padding: 1rem;
+//   transition: all 0.2s;
+// }
+
+// .form-label-group {
+//   position: relative;
+//   margin-bottom: 1rem;
+// }
+
+// .form-label-group input {
+//   height: 50px;
+//   border-radius: 1rem;
+//   padding-top: 0;
+//    padding-left: 15px;
+//    line-height: 1em;
+// }
+
+// .form-label-group>input,
+// .form-label-group>label {
+//   padding: var(--input-padding-y) var(--input-padding-x);
+  
+// }
+// .form-label-group>::placeholder{
+//   padding-left: 15px;
+// }
+// #myVideo {
+//   position: fixed;
+//   right: 0;
+//   bottom: 0;
+//   min-width: 100%; 
+//   min-height: 100%;
+// }
+
+
+.login-center{
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  // background-color: white;
+  height: 100vh;
+}
+.form-signin {
+  width: 100%;
+  max-width: 430px;
+  padding: 15px;
+  margin: auto;
+  text-align: center;
+  border: 2px solid #009cde;
+  box-shadow: 4px 4px #009cde;
+
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px !important;
+  
+}
+.form-signin .form-control:focus {
+  border-color: white;
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-radius: 5px;
+  
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.signinBtn{
+  background-color: #009cde;
+  color: white;
+  font-weight: 400;
+}
+.image{
+  background-image: url(../../../../assets/pixel3.jpg);
+  background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}
