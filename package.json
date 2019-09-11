@@ -8,9 +8,10 @@
   },
   "scripts": {
     "ng": "ng",
-    "build": "ng build -prod -aot && gulp",
+    "build": "ng build",
     "start": "node server.js",
-    "test": "ng test --watch false",
+    "test": "ng test",
+    "lint":"ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
