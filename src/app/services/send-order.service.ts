@@ -9,7 +9,7 @@ export class SendOrderService {
 
   cartproducts: SendOrder[];
   
-  readonly baseURL = 'http://localhost:3000/orders';
+  readonly baseURL = 'https://designpavan.herokuapp.com/orders';
   // readonly smsurl = 'https://app.notify.lk/api/v1/send?user_id=10760&api_key=rQ8LexGbadgc9bWRvZmd&sender_id=NotifyDEMO&to=94712013009&message=TestWork';
       
 
