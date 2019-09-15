@@ -39,7 +39,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   public itemCount: number;
   public itemList:SendOrder = new SendOrder();
 
-  today = new Date();
+  today = new Date().toISOString();
   tableNo: string;
   telNo: string;
   grossT:number =0;
@@ -118,6 +118,8 @@ export class CheckoutComponent implements OnInit, OnDestroy {
                   });
       
     });
+
+    this.emptyCart(); //temporary
 
     swal.fire({
       title: "Order will be soon!",
