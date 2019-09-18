@@ -7,3 +7,24 @@
 .list-group{
   margin-bottom: 20px;
 }
+.scrollable{
+  position: fixed;
+  height: calc(100% - 30px);
+  width: 100%;
+  overflow-y: auto;
+}
+
+.rightSide{
+  position: fixed;
+  right: 0;
+  
+}
+
+.image{
+  // background-image: url(../../../assets/upixel5new.jpg);
+  background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}

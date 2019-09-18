@@ -20,7 +20,7 @@ export class ChefViewComponent implements OnInit {
   chart = <any>[];
 
 
-  private product: Product[];
+  public product: Product[];
   public products: Observable<Product[]>;
   public sendOrders: SendOrder[];
 
@@ -30,22 +30,33 @@ export class ChefViewComponent implements OnInit {
               private productsService: ProductsDataService) { }
 
   ngOnInit() {
-    this.products = this.productsService.all();
-    this.productsService.all().subscribe((products) => {
-      this.product=products;
+    // this.products = this.productsService.all();
+    this.productsService.all().subscribe((res:Product[]) => {
+      this.product=res;
       
-      // console.log(this.product)
+      res.forEach(x => {
+        // console.log(x.name)
+        this.name.push(x.name);
+        
+      })
+      // console.log(this.name)
     })
     
     this.sendorderservice.getOrder().subscribe((res:SendOrder[]) => {
       this.sendOrders=res;
-      
+
+      console.log(res);
+      console.log();
+
       let i = 0;
+      let j = 0;
+      
       res.forEach(y => {
         
-        this.name.push(y.items[i].name);
         this.quantity.push(y.items[i].quantity);
       });
+
+
       this.chart = new Chart('canvas', { 
       type:'line',
       data:{
