@@ -108,10 +108,12 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.cartItems.forEach(function(value){
       this.itemList.items.push(new Item(value.productId,value.proName,value.quantity));
     },this);
-    console.log(this.itemList);
+    // console.log(this.itemList);
     this.sendorderservice.sendOrder(this.itemList).subscribe((res) => {
-      
-      this.http.get(`https://app.notify.lk/api/v1/send?user_id=10760&api_key=rQ8LexGbadgc9bWRvZmd&sender_id=NotifyDEMO&to=${'94'+this.telNo}&message=test`)
+
+      let message = "You have purchased $"+this.grossT+" value items from our store on "+this.today+"Thank you for visiting Us!";
+      console.log(message);
+      this.http.get(`https://app.notify.lk/api/v1/send?user_id=10760&api_key=rQ8LexGbadgc9bWRvZmd&sender_id=NotifyDEMO&to=${'94'+this.telNo}&message=${message}`)
                   .subscribe(data=> {
                     alert("reqested");
                     console.log("data",data);
@@ -153,7 +155,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       paypal.Button.render({
         env: 'sandbox',
         style: {
-          size: 'large',
+          size: 'medium',
           color: 'blue',
           shape: 'pill',
           label: 'checkout'
