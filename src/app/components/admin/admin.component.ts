@@ -20,6 +20,7 @@ import swal from 'sweetalert2';
 
 import { AuthService } from  '../../auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 interface ICartItemWithProduct extends CartItem {
@@ -65,14 +66,20 @@ export class AdminComponent implements OnInit {
               private sendorderservice: SendOrderService,
               private shoppingCartService: ShoppingCartService,
               private  authService:  AuthService,
-              private http:HttpClientModule
+              private http:HttpClientModule,
+              private router: Router
               ) {
+
+      if(!authService.isLoggedIn){
+        router.navigate(['login']);
+      }
   }
 
   
 
 
   ngOnInit() {
+
     this.resetForm();
     this.refreshProducts();
     this.products = this.productsService.all();
