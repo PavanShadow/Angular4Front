@@ -7,6 +7,8 @@ import { Product } from "app/models/product.model";
 import { ProductsDataService } from "app/services/products.service";
 import { Observable } from "rxjs/Observable";
 import { Subscription } from "rxjs/Subscription";
+import { AuthService } from 'app/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chef-view',
@@ -27,7 +29,14 @@ export class ChefViewComponent implements OnInit {
   show:boolean=false;
 
   constructor(private sendorderservice: SendOrderService,
-              private productsService: ProductsDataService) { }
+              private productsService: ProductsDataService,
+              private authService: AuthService,
+              private router: Router) { 
+
+          if(!authService.isLoggedIn){
+            router.navigate(['login']);
+          }
+  }
 
   ngOnInit() {
     // this.products = this.productsService.all();
