@@ -113,7 +113,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
       let message = "You have purchased $"+this.grossT+" value items from our store on "+this.today+"Thank you for visiting Us!";
       console.log(message);
-      this.http.get(`https://app.notify.lk/api/v1/send?user_id=10760&api_key=rQ8LexGbadgc9bWRvZmd&sender_id=NotifyDEMO&to=${'94'+this.telNo}&message=${message}`)
+      this.http.get(`https://app.notify.lk/api/v1/send?user_id=11023&api_key=djJ0ltAiLZhPiOhFvtZw&sender_id=NotifyDEMO&to=${'94'+this.telNo}&message=${message}`)
                   .subscribe(data=> {
                     alert("reqested");
                     console.log("data",data);
