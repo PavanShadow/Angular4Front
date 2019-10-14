@@ -17,6 +17,7 @@ import { httpFactory } from "@angular/http/src/http_module";
 import { Router } from '@angular/router';
 
 import swal from 'sweetalert2';
+import * as moment from 'moment';
 
 declare let paypal: any;
 // declare var M: any;
@@ -39,7 +40,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   public itemCount: number;
   public itemList:SendOrder = new SendOrder();
 
-  today = new Date().toISOString();
+  today = moment().format('LT');
   tableNo: string;
   telNo: string;
   grossT:number =0;

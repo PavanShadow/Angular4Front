@@ -20,6 +20,7 @@ export class ChefViewComponent implements OnInit {
   name = [];
   quantity = [];
   chart = <any>[];
+  myPieChart = <any>[];
 
 
   public product: Product[];
@@ -41,7 +42,7 @@ export class ChefViewComponent implements OnInit {
   ngOnInit() {
     // this.products = this.productsService.all();
     this.productsService.all().subscribe((res:Product[]) => {
-      this.product=res;
+      this.product=res
       
       res.forEach(x => {
         // console.log(x.name)
@@ -50,6 +51,8 @@ export class ChefViewComponent implements OnInit {
       })
       // console.log(this.name)
     })
+
+    
     
     this.sendorderservice.getOrder().subscribe((res:SendOrder[]) => {
       this.sendOrders=res;
@@ -91,6 +94,24 @@ export class ChefViewComponent implements OnInit {
       }
     });
     });
+
+
+  //   this.myPieChart = new Chart('pie', {
+  //     type: 'pie',
+  //     data: {
+  //       datasets: [{
+  //           data: [10, 20, 30]
+  //       }],
+    
+  //       // These labels appear in the legend and in the tooltips when hovering different arcs
+  //       labels: [
+  //           'Red',
+  //           'Yellow',
+  //           'Blue'
+  //       ]
+  //   },
+  //     options:{ rotation: -0.7 * Math.PI}
+  // });
 
 
     
