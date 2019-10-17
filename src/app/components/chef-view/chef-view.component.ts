@@ -64,12 +64,13 @@ export class ChefViewComponent implements OnInit {
       let j = 0;
       
       res.forEach(y => {
+
         y['items'].forEach(p => {
-          console.log(p['name'],this.name.indexOf(p['name']));
+          
           if(this.quantity[this.name.indexOf(p['name'])]  == undefined) {
             this.quantity[this.name.indexOf(p['name'])] = 0;
           }
-          console.log("r",this.quantity[this.name.indexOf(p['name'])]);
+          
           this.quantity[this.name.indexOf(p['name'])] = this.quantity[this.name.indexOf(p['name'])]+ p['quantity'];
         })
         //this.quantity.push(y.items[i].quantity);
