@@ -57,17 +57,25 @@ export class ChefViewComponent implements OnInit {
     this.sendorderservice.getOrder().subscribe((res:SendOrder[]) => {
       this.sendOrders=res;
 
-      console.log(res);
+      console.log("es",res);
       console.log();
 
       let i = 0;
       let j = 0;
       
       res.forEach(y => {
-        
-        this.quantity.push(y.items[i].quantity);
+        y['items'].forEach(p => {
+          console.log(p['name'],this.name.indexOf(p['name']));
+          if(this.quantity[this.name.indexOf(p['name'])]  == undefined) {
+            this.quantity[this.name.indexOf(p['name'])] = 0;
+          }
+          console.log("r",this.quantity[this.name.indexOf(p['name'])]);
+          this.quantity[this.name.indexOf(p['name'])] = this.quantity[this.name.indexOf(p['name'])]+ p['quantity'];
+        })
+        //this.quantity.push(y.items[i].quantity);
       });
 
+      console.log("q",this.quantity);
 
       this.chart = new Chart('canvas', { 
       type:'line',
