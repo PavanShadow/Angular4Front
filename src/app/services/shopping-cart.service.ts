@@ -99,7 +99,7 @@ export class ShoppingCartService {
           try {
             sub.next(cart);
           } catch (e) {
-            // we want all subscribers to get the update even if one errors.
+            
           }
         });
   }

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cmc-markets-code-test": {
+    "smart-ordering-system": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -48,18 +48,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "cmc-markets-code-test:build"
+            "browserTarget": "smart-ordering-system:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "cmc-markets-code-test:build:production"
+              "browserTarget": "smart-ordering-system:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cmc-markets-code-test:build"
+            "browserTarget": "smart-ordering-system:build"
           }
         },
         "test": {
@@ -91,7 +91,7 @@
         }
       }
     },
-    "cmc-markets-code-test-e2e": {
+    "smart-ordering-system-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -100,7 +100,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "cmc-markets-code-test:serve"
+            "devServerTarget": "smart-ordering-system:serve"
           }
         },
         "lint": {
@@ -115,7 +115,7 @@
       }
     }
   },
-  "defaultProject": "cmc-markets-code-test",
+  "defaultProject": "smart-ordering-system",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

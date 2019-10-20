@@ -13,7 +13,7 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app.routing";
 import { CheckoutComponent } from "./components/checkout/checkout.component";
-import { OrderConfirmationComponent } from "./components/order-confirmation/order-confirmation.component";
+
 import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.component";
 import { StoreFrontComponent } from "./components/store-front/store-front.component";
 import { AdminComponent } from './components/admin/admin.component';
@@ -50,7 +50,6 @@ const firebaseConfig = {
     ShoppingCartComponent,
     StoreFrontComponent,
     CheckoutComponent,
-    OrderConfirmationComponent,
     AdminComponent,
     ChefViewComponent,
     LoginComponent,
