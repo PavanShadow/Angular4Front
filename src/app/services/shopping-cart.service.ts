@@ -5,10 +5,8 @@ import { Observer } from "rxjs/Observer";
 import { Http } from "@angular/http";
 
 import { CartItem } from "../models/cart-item.model";
-import { DeliveryOption } from "../models/delivery-option.model";
 import { Product } from "../models/product.model";
 import { ShoppingCart } from "../models/shopping-cart.model";
-import { DeliveryOptionsDataService } from "../services/delivery-options.service";
 import { ProductsDataService } from "../services/products.service";
 
 const CART_KEY = "cart";
@@ -19,19 +17,15 @@ export class ShoppingCartService {
   private subscriptionObservable: Observable<ShoppingCart>;
   private subscribers: Array<Observer<ShoppingCart>> = new Array<Observer<ShoppingCart>>();
   private products: Product[];
-  // private cartItem : CartItem[];
-  // private cart : ShoppingCart[];
-  private deliveryOptions: DeliveryOption[];
-
-  // private baseURL = 'http://localhost:3000/orders';
+  
 
   public constructor(public storageService: StorageService,
                      private productService: ProductsDataService,
-                     private deliveryOptionsService: DeliveryOptionsDataService,
+                     
                      private http: Http) {
     this.storage = this.storageService.get();
     this.productService.all().subscribe((products) => this.products = products);
-    this.deliveryOptionsService.all().subscribe((options) => this.deliveryOptions = options);
+    
 
     this.subscriptionObservable = new Observable<ShoppingCart>((observer: Observer<ShoppingCart>) => {
       this.subscribers.push(observer);
@@ -73,21 +67,13 @@ export class ShoppingCartService {
     this.dispatch(newCart);
   }
 
-  public setDeliveryOption(deliveryOption: DeliveryOption): void {
-    const cart = this.retrieve();
-    cart.deliveryOptionId = deliveryOption.id;
-    this.calculateCart(cart);
-    this.save(cart);
-    this.dispatch(cart);
-  }
+  
 
   private calculateCart(cart: ShoppingCart): void {
     cart.itemsTotal = cart.items
                           .map((item) => item.quantity * this.products.find((p) => p._id === item.productId).price)
                           .reduce((previous, current) => previous + current, 0);
-    cart.deliveryTotal = cart.deliveryOptionId ?
-                          this.deliveryOptions.find((x) => x.id === cart.deliveryOptionId).price :
-                          0;
+    
     cart.grossTotal = cart.itemsTotal + cart.deliveryTotal;
   }
 

@@ -5,10 +5,8 @@ import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from '@angular/common/http';
 
-import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
-import { FileUploadModule,FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
 
-import { Cloudinary } from '@cloudinary/angular-5.x';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 
 
@@ -20,13 +18,11 @@ import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.
 import { StoreFrontComponent } from "./components/store-front/store-front.component";
 import { AdminComponent } from './components/admin/admin.component';
 
-import { PopulatedCartRouteGuard } from "./route-gaurds/populated-cart.route-gaurd";
-import { DeliveryOptionsDataService } from "./services/delivery-options.service";
 import { ProductsDataService } from "./services/products.service";
 import { ShoppingCartService } from "./services/shopping-cart.service";
 import { LocalStorageServie, StorageService } from "./services/storage.service";
 import { SendOrderService } from "./services/send-order.service";
-// import { DisplayComponent } from './components/display/display.component';
+
 import { AdminService } from "./services/admin.service";
 import { ChefViewComponent } from './components/chef-view/chef-view.component';
 import { LoginComponent } from './components/admin/login/login.component';
@@ -35,8 +31,6 @@ import {AuthService} from "app/auth/auth.service";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule} from "@angular/fire/auth";
-
-import swal from 'sweetalert2';
 
 
 const firebaseConfig = {
@@ -60,7 +54,6 @@ const firebaseConfig = {
     AdminComponent,
     ChefViewComponent,
     LoginComponent,
-    // FileSelectDirective
    
   ],
   imports: [
@@ -77,15 +70,13 @@ const firebaseConfig = {
   ],
   providers: [
     ProductsDataService,
-    DeliveryOptionsDataService,
-    PopulatedCartRouteGuard,
     LocalStorageServie,
     SendOrderService,
     AdminService,
     AuthService,
     { provide: StorageService, useClass: LocalStorageServie },
     {
-      deps: [StorageService, ProductsDataService, DeliveryOptionsDataService],
+      deps: [StorageService, ProductsDataService],
       provide: ShoppingCartService,
       useClass: ShoppingCartService
     }

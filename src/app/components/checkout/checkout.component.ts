@@ -1,19 +1,17 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
-import { NgForm, NgModelGroup, FormBuilder, FormGroup, FormControl, FormArray, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { Observable } from "rxjs/Observable";
 import { Subscription } from "rxjs/Subscription";
 import { HttpClient } from '@angular/common/http';
 import { CartItem } from "app/models/cart-item.model";
-import { DeliveryOption } from "app/models/delivery-option.model";
 import { Product } from "app/models/product.model";
 import { ShoppingCart } from "app/models/shopping-cart.model";
-import { DeliveryOptionsDataService } from "app/services/delivery-options.service";
+
 import { ProductsDataService } from "app/services/products.service";
 import { ShoppingCartService } from "app/services/shopping-cart.service";
 import { SendOrderService } from "app/services/send-order.service";
 import { SendOrder, Item } from "app/models/send-order.model";
-import { httpFactory } from "@angular/http/src/http_module";
+
 import { Router } from '@angular/router';
 
 import swal from 'sweetalert2';
@@ -34,13 +32,13 @@ interface ICartItemWithProduct extends CartItem {
   templateUrl: "./checkout.component.html"
 })
 export class CheckoutComponent implements OnInit, OnDestroy {
-  public deliveryOptions: Observable<DeliveryOption[]>;
+
   public cart: Observable<ShoppingCart>;
   public cartItems: ICartItemWithProduct[];
   public itemCount: number;
   public itemList:SendOrder = new SendOrder();
 
-  today = moment().format('LT');
+  today = moment().calendar();
   tableNo: string;
   telNo: string;
   grossT:number =0;
@@ -66,9 +64,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.shoppingCartService.empty();
   }
 
-  public setDeliveryOption(option: DeliveryOption): void {
-    this.shoppingCartService.setDeliveryOption(option);
-  }
 
   
   public ngOnInit(): void {

@@ -8,8 +8,6 @@ import { AdminComponent } from "./components/admin/admin.component";
 import { LoginComponent } from "./components/admin/login/login.component";
 
 
-import { PopulatedCartRouteGuard } from "./route-gaurds/populated-cart.route-gaurd";
-
 import { ChefViewComponent } from "./components/chef-view/chef-view.component";
 
 @NgModule({
@@ -17,12 +15,10 @@ import { ChefViewComponent } from "./components/chef-view/chef-view.component";
     imports: [
         RouterModule.forRoot([
             {
-                canActivate: [PopulatedCartRouteGuard],
                 component: CheckoutComponent,
                 path: "checkout"
             },
             {
-                canActivate: [PopulatedCartRouteGuard],
                 component: OrderConfirmationComponent,
                 path: "confirmed"
             },
