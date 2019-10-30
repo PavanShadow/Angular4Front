@@ -38,7 +38,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   public itemCount: number;
   public itemList:SendOrder = new SendOrder();
 
-  today = moment().calendar();
+  today = moment().format('LT');
   tableNo: string;
   telNo: string;
   grossT:number =0;
